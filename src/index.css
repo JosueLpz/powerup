@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component Borders and Labels */
+.component-container {
+  @apply relative border-2 border-red-500 rounded-lg p-4 my-2;
+}
+
+.component-container::before {
+  content: attr(data-component);
+  @apply absolute -top-3 left-2 bg-background-primary px-2 text-sm text-red-500 font-mono;
+}
+
+.child-container {
+  @apply relative border-2 border-green-500 rounded-lg p-4 my-2;
+}
+
+.child-container::before {
+  content: attr(data-component);
+  @apply absolute -top-3 left-2 bg-background-primary px-2 text-sm text-green-500 font-mono;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Typewriter Styles */
+.typewriter-wrapper {
+  @apply inline-block;
+}
+
+.typewriter-cursor {
+  @apply text-accent-primary;
+}
